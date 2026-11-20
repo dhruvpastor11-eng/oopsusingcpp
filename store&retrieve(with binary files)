@@ -1,0 +1,41 @@
+#include <iostream>
+#include <string>
+#include <fstream>
+using namespace std;
+class student {
+string name; 
+int age;
+string sex;
+float height; 
+float weight; 
+public:  
+void readData()    { 
+cout << "Enter name: ";        
+cin >> name;
+cout << "Enter age: ";
+cin >> age; 
+cout << "Enter sex: ";
+cin >> sex;  
+cout << "Enter height: "; 
+cin >> height;
+cout << "Enter weight: ";
+cin >> weight;}    
+void show(){    
+cout << "Name: " << name << endl;  
+cout << "Age: " << age << endl;   
+cout << "Sex: " << sex << endl; 
+cout << "Height: " << height << endl;  
+cout << "Weight: " << weight << endl;}}; 
+int main(){ 
+student s; 
+s.readData();
+s.show();
+ofstream out("student.dat", ios::binary);
+out.write((char*)&s, sizeof(s));  
+out.close();
+ifstream in("student.dat", ios::binary);  
+student t; 
+in.read((char*)&t, sizeof(t));
+t.show(); 
+in.close();   
+return 0;} 
