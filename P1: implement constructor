@@ -1,0 +1,25 @@
+#include<iostream>
+using namespace std;
+class complex{
+private:
+float real;
+float imag;
+public:
+complex(){
+real = 0;
+imag = 0;}
+complex(float r,float i):real(r),imag(i)
+{}
+void show(){
+cout << "complex no is:"<< real<<"+"<<imag<<"i"<<endl;}
+void add(complex c)
+{ float a1=this->real +c.real;
+float a2=this->imag +c.imag;
+cout<<"sum is:"<< a1<<"+"<<a2<<"i"<<endl;}};
+int main(){
+complex c1(2.0,3.0);
+complex c2(4.0,5.0);
+c1.show();
+c2.show();
+c1.add(c2);
+return 0;}
