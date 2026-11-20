@@ -1,0 +1,44 @@
+#include<iostream>
+using namespace std;
+class LIST{
+	public:
+		virtual void store()=0;
+		virtual void retrieve()=0;
+};
+class stack:public LIST{
+   public:
+	void store()
+	{
+		cout<<"storing in stack"<<endl;
+	}
+	 void retrieve()
+	{
+		cout<<"retrieving from stack"<<endl;
+	}
+};
+class queue:public LIST{
+	public:
+	void store()
+	{
+		cout<<"storing in queue"<<endl;
+	}
+	void retrieve()
+	{
+		cout<<"retrieving from queue"<<endl;
+	}
+};
+int main()
+{
+	LIST *p;
+	stack s;
+	queue q;
+	
+	p=&s;
+	p->store();
+    p->retrieve();
+    
+    p=&q;
+    p->store();
+    p->retrieve();
+    return 0;
+}
